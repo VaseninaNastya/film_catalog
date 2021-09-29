@@ -10,8 +10,8 @@ const initialState = {
     error: false,
   };
 
-  const getDataReduser = (state = initialState, action : any) => {
-    switch (action.type) {
+ export const getDataReduser = (state = initialState, {type,data} : any) => {
+    switch (type) {
       case REQUESTED_FILM:
         return {
           data: '',
@@ -20,9 +20,10 @@ const initialState = {
         };
       case REQUESTED_FILM_SUCCEEDED:
         return {
-          data: action.data,
+          data: data,
           loading: false,
           error: false,
+
         };
       case REQUESTED_FILM_FAILED:
         return {
@@ -34,4 +35,3 @@ const initialState = {
         return state;
     }
   };
-  export default getDataReduser

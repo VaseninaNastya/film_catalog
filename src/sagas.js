@@ -2,51 +2,26 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
 
 
-import {requestFilmAction, requestFilmSuccessAction, requestFilmErrorAction} from './actions/getDataAction'
+import {requestFilmSuccessAction, requestFilmErrorAction} from './actions/getDataAction'
 
 import apiUrl from "./constants/urls.constants";
 
 
 
-function* fetchFilmAsync() {
+function* fetchFilmAsync(action) {
   try {
-     const data = yield call(() => {
-      return fetch( apiUrl.apiUrl )
-              .then(res => res.json())
-      });
-
-
+     const data = yield call(fetchFilms, action.value)
      yield put(requestFilmSuccessAction(data));
   } catch (e) {
      yield put(requestFilmErrorAction());
   }
 }
-
+const fetchFilms = (value) => {
+  return  fetch( apiUrl.apiUrl + value + "&plot=fulll&apikey=5704d601&")
+  .then(res => res.json())
+}
 
 export function* watchFetchFilm() {
-  yield takeEvery('FETCHED_FILM', fetchFilmAsync);
+  yield takeEvery('REQUESTED_FILM', fetchFilmAsync);
 }
 
-/*import { put, call } from 'redux-saga/effects'
-
-export function* helloSaga() {
-  console.log('Hello Saga!')
-}
-
-export function* incrementAsync() {
-  yield delay(1000)
-  yield put({type: 'INCREMENT'})
-}
-
-export function* watchIncrementAsync() {
-  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
-}
-
-// single entry point to start all Sagas at once
-export default function* rootSaga() {
-  yield all([
-    call(helloSaga),
-    call(watchIncrementAsync),
-  ])
-}
-*/

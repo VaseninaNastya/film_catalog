@@ -7,7 +7,7 @@ import { initNumbersOfPageAction  } from "../../actions/numbersOfPageAction";*/
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import magicNumbers from "../../constants/magicNumbers.constants";
-import Header from '../Header/index'
+import Header from '../Header'
 const CardHolder = () => {
   const cardsFragment = []
   for (let index = 1; index <= magicNumbers.numberOfPageProducts; index++) {
