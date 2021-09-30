@@ -1,8 +1,9 @@
 import {
-    REQUESTED_FILMS,
-    REQUESTED_FILMS_SUCCEEDED,
-    REQUESTED_FILMS_FAILED
+    REQUESTED_ONE_FILM,
+    REQUESTED_ONE_FILM_SUCCEEDED,
+    REQUESTED_ONE_FILM_FAILED
   } from "../actions/actionTypes";
+
 
 const initialState = {
     data: '',
@@ -10,26 +11,26 @@ const initialState = {
     error: false,
   };
 
- export const getDataReduser = (state = initialState, {type,data} : any) => {
+ export const getOneFilmDataReduser = (state = initialState, {type,data} : any) => {
     switch (type) {
-      case REQUESTED_FILMS:
+      case REQUESTED_ONE_FILM:
         return {
-            ...state,
+          ...state,
           data: '',
           loading: true,
           error: false,
         };
-      case REQUESTED_FILMS_SUCCEEDED:
+      case REQUESTED_ONE_FILM_SUCCEEDED:
         return {
-            ...state,
+          ...state,
           data: data,
           loading: false,
           error: false,
 
         };
-      case REQUESTED_FILMS_FAILED:
+      case REQUESTED_ONE_FILM_FAILED:
         return {
-            ...state,
+          ...state,
           data: '',
           loading: false,
           error: true,

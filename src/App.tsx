@@ -1,11 +1,30 @@
 import React from 'react';
 import './App.css';
-import CardHolder from "./components/CardHolder";
+import HomePage from './pages/HomePage'
+import FilmPage from './pages/FilmPage'
+import TeamPage from './pages/TeamPage'
+
+import {
+  BrowserRouter as HashRouter,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
+
 function App() {
   return (
-    <>
-<CardHolder/>
- </> );
+    <div className="wrapper">
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/film" component={FilmPage} />
+          <Route exact path="/aboutTheTeam" component={TeamPage} />
+          <Redirect to="/" />
+        </Switch>
+      </HashRouter>
+    </div>
+    );
 }
 
 export default App;

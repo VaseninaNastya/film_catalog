@@ -1,0 +1,21 @@
+@import "../../index.scss";
+
+
+
+.aboutTheTeam_imgWrapper{
+  max-height: calc(100vh - 100px);
+  width: 50%;
+  display: flex;
+  align-items: center;
+  img{
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+.aboutTheTeam_description{
+  padding: 0 20px;
+  padding-top: 30px;
+  h2{
+    margin-bottom: 30px;
+  }
+}

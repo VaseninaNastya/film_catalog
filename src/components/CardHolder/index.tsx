@@ -7,79 +7,47 @@ import { initNumbersOfPageAction  } from "../../actions/numbersOfPageAction";*/
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import magicNumbers from "../../constants/magicNumbers.constants";
-import Header from '../Header'
+import { RootState} from '../../store'
 const CardHolder = () => {
-  const cardsFragment = []
-  for (let index = 1; index <= magicNumbers.numberOfPageProducts; index++) {
-    cardsFragment.push(index)
-  }
-  return(
-    <>
-    <Header/>
-      {cardsFragment.map((item:number)=>{
-          return <Card id = {item}/>
-        })}
-    </>
-  )
-  /*const allFetchedProducts = useSelector(
-    (state) => state.productsList.products
-  );
-  const sortedProducts = useSelector(
-    (state) => state.productSort.products
-  );
-  const searchProducts = useSelector(
-    (state) => state.productSearch.products
-  );
-  const productsForSorting = searchProducts.length ? searchProducts : sortedProducts.length ? sortedProducts :  allFetchedProducts
-  const activePage = useSelector((state) => state.activePage.activePage);
-  const structureProducts = [];
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProductListAction());
-    dispatch(getCardProductsAction());
-    dispatch(initNumbersOfPageAction ());
-    dispatch(initActivePageAction());
-  }, []);
-  for (let i = 0; i < productsForSorting.length; i += magicNumbers.numberOfPageProducts) {
-    structureProducts.push(
-        productsForSorting.slice(i, i + magicNumbers.numberOfPageProducts)
-    );
-  }
-
-  if (structureProducts.length > 0) {
-    return (
-      <div className={s.cardHolder_container}>
-        {structureProducts[activePage - 1].map(
-          ({
-            id,
-            name,
-            tagline,
-            description,
-            image_url,
-            first_brewed,
-            volume,
-            abv,
-          }) => {
-            return (
-              <Card
-              key={id}
-                id={id}
-                name={name}
-                tagline={tagline}
-                description={description}
-                image_url={image_url}
-                first_brewed={first_brewed}
-                volume={volume}
-                abv={abv}
-              />
-            );
-          }
-        )}
+  interface Item { imdbID: string; Title: string; Year: string; Type: string;Poster: string;}
+  const allFetchedFilms = useSelector((state: RootState) => {
+    return state.getData.data
+  });
+  const sortedFilms = useSelector((state: RootState) => {
+    return state.filmSort.sortedData
+  });
+  const response = useSelector((state: RootState) => {
+    return state.getData.error
+  });
+console.log("sortedFilms", sortedFilms)
+  if(Object.keys(allFetchedFilms).length  && allFetchedFilms.Response ==="True" && !response){
+    const filmsForShow = sortedFilms.length ? sortedFilms : allFetchedFilms.Search
+   return(
+      <div className={s.container}>
+        <div className={s.cardHolder_container}>
+          {filmsForShow.map(({imdbID, Title, Year, Type, Poster}: Item)=>{
+            return <Card id = {imdbID}  title = {Title} year = {Year} type = {Type} poster = {Poster}/>
+          })}
+        </div>
       </div>
-    );
-  } else {
-    return <div>...waiting</div>;
-  }*/
+    )
+  } else if(allFetchedFilms.Response === "False") {
+    return(
+      <div className={s.container}>
+        <h2 className={s.cardHolder_title}>Try changing your query.</h2>
+      </div>
+    )
+  }else if(Object.keys(allFetchedFilms).length === 0 && response === false){
+    return(
+      <div className={s.container}>
+        <h2 className={s.cardHolder_title}>Try to find a movie!</h2>
+      </div>
+    )
+  } else{
+    return(
+      <div className={s.container}>...waiting</div>
+    )
+  }
 };
 
 export default CardHolder;
