@@ -1,0 +1,38 @@
+@import "../../index.scss";
+
+
+
+.filmFullListCard {
+  display: flex;
+  margin: 10px;
+  position: relative;
+  background-color: white;
+  border: 1px solid white;
+  transition: all 0.3s !important;
+  width: 100%;
+  .filmListCard_imgWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    .filmListCard_img{
+      max-width: 100%;
+      max-height: 100%;
+  }
+  }
+  ul{
+    width: 50%;
+  }
+}
+
+
+.content_container{
+  display: flex;
+  width: 100%;
+}
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,43 @@
+.filmListCard_imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filmListCard_img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.filmListCard {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  position: relative;
+  height: calc(100% - 10px);
+
+}
+.filmListCard:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.filmListCard_list {
+  width: 70%;
+  margin-left: 10px;
+}
+
+
+
+.filmListCard_title {
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  line-clamp: 2;
+  font-weight: 700;
+}
+.filmListCard_header{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 5px;
+  margin-top: 5px;
+}

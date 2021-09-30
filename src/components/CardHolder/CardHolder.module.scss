@@ -1,0 +1,10 @@
+@import "../../index.scss";
+.cardHolder_container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    overflow: auto;
+}
+.cardHolder_title{
+    margin: 20px;
+    width: 100%;
+}
