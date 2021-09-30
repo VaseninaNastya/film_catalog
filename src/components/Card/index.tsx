@@ -9,7 +9,7 @@ interface  CardProps {
   title: string,
   year: string,
   type:string,
-poster:string,
+  poster:string,
 }
 const Card: React.FC<CardProps> = ({id, title, year, type, poster}) => {
   const dispatch = useDispatch();

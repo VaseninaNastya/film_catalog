@@ -4,14 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import fitler from "../../utils/fitler.utils";
 import { RootState } from '../../store'
 import { filmSortAction } from '../../actions/filmSortAction'
-import { type } from "os";
 
 const Sort = () => {
   const allFetchedFilms = useSelector((state: RootState) => {
-    return state.getData.data.Search
+    return state.getData.data
   });
-
-  const productsForSort = allFetchedFilms
+  const errorRequest = useSelector((state: RootState) => {
+    return state.getData.error
+  });
+  const wrongRequest = useSelector((state: RootState) => {
+    return state.getData.data.Response
+  });
+  const disabledSelect:boolean = errorRequest === true || allFetchedFilms.length === 0 || wrongRequest==="False" ? true : false
+  
+  const productsForSort = allFetchedFilms.Search
   const dispatch = useDispatch();
   const handleSortChoise = function ({target: {value}}:any) {
     let sorted: object[] = []
@@ -21,11 +27,10 @@ const Sort = () => {
     } 
     dispatch(filmSortAction(sorted));
   };
-
   return (
     <div className= {s.sort_container}>
     <span className = {s.sort_title}>Sort:</span>
-      <select onChange={handleSortChoise}>
+      <select disabled ={disabledSelect} onChange={handleSortChoise}>
         <option value="without_sorting">Without sorting</option>
         <option value="Year">Year</option>
         <option value="Title">Name</option>
