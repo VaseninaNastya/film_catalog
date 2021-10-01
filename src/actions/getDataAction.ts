@@ -6,12 +6,13 @@ import {
 
 
 
-export const requestFilmAction = (value : string) => {
+export const requestFilmAction = (value : string ) => {
   return { type: REQUESTED_FILMS,
   value }
 };
 
-export const requestFilmsSuccessAction = (data : any) => {
+export const requestFilmsSuccessAction = (data : object) => {
+  console.log("data", data, typeof data)
   return { type: REQUESTED_FILMS_SUCCEEDED, data: data }
 };
 

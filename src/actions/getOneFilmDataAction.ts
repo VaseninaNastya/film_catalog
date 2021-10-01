@@ -6,12 +6,12 @@ import {
 
 
 
-export const requestOneFilmAction = (value : string) => {
+export const requestOneFilmAction = (value : string | null) => {
   return { type: REQUESTED_ONE_FILM,
   value }
 };
 
-export const requestOneFilmSuccessAction = (data : any) => {
+export const requestOneFilmSuccessAction = (data :object) => {
   return { type: REQUESTED_ONE_FILM_SUCCEEDED, data: data }
 };
 

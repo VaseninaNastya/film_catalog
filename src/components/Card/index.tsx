@@ -13,9 +13,9 @@ interface  CardProps {
 }
 const Card: React.FC<CardProps> = ({id, title, year, type, poster}) => {
   const dispatch = useDispatch();
-  const handleGetFilm = ({currentTarget}:any) => {
-    console.log("target.getAttribute(id)" , currentTarget.getAttribute("id"))
-   dispatch(requestOneFilmAction(currentTarget.getAttribute("id")))
+  const handleGetFilm = ({currentTarget}: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const result = currentTarget.getAttribute("id")
+    dispatch(requestOneFilmAction(result))
   }
   return(
     <Link to="/film">

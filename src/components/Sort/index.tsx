@@ -19,7 +19,7 @@ const Sort = () => {
   
   const productsForSort = allFetchedFilms.Search
   const dispatch = useDispatch();
-  const handleSortChoise = function ({target: {value}}:any) {
+  const handleSortChoise = function ({target: {value}}: React.ChangeEvent<HTMLSelectElement>) {
     let sorted: object[] = []
     productsForSort.map((item : object)=>sorted.push(item))
     if(value !== 'without_sorting'){

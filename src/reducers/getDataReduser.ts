@@ -9,8 +9,12 @@ const initialState = {
     loading: false,
     error: false,
   };
+  interface Action {
+    type: string;
+    data: any 
+  }
 
- export const getDataReduser = (state = initialState, {type,data} : any) => {
+ export const getDataReduser = (state = initialState, {type,data} : Action) => {
     switch (type) {
       case REQUESTED_FILMS:
         return {
