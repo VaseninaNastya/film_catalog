@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import React from "react";
 import s from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { requestFilmAction} from '../../actions/getDataAction'
 import {clearFilmSortAction } from '../../actions/filmSortAction'
 import cl from "classnames";
 import Sort from '../Sort/index'
-import { ReactHTMLElement } from "react";
+
 
 interface  HeaderProps {
   hideSearch: boolean,

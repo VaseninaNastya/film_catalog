@@ -2,7 +2,7 @@ import React from "react";
 import Header from '../components/Header'
 import CardHolder from '../components/CardHolder'
 
-const HomePage = () => {
+const HomePage:React.FunctionComponent = () => {
   return (
     <>
       <Header hideSearch = {false} hideReturnToList = {true} hideAboutTheTeam = {false}/>

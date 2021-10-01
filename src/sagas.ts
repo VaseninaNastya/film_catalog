@@ -1,5 +1,3 @@
-import { promises } from 'dns';
-import { type } from 'os';
 import { takeEvery, call, put } from 'redux-saga/effects'
 import {requestFilmsSuccessAction, requestFilmsErrorAction} from './actions/getDataAction'
 import {requestOneFilmSuccessAction, requestOneFilmErrorAction} from './actions/getOneFilmDataAction'

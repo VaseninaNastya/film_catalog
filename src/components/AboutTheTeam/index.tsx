@@ -1,12 +1,8 @@
 import React from "react";
 import s from "./AboutTheTeam.module.scss";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { type } from "os";
-import {requestOneFilmAction} from '../../actions/getOneFilmDataAction'
-import img from '../../img/me.jpg'
+import img from '../../img/me.jpg';
 
-const AboutTheTeam = () => {
+const AboutTheTeam:React.FunctionComponent = () => {
   return(
     <div className={s.container}>
       <div className={s.aboutTheTeam_description}>

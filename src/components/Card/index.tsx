@@ -1,8 +1,7 @@
 import React from "react";
 import s from "./Card.module.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { type } from "os";
+import { useDispatch } from "react-redux";
 import {requestOneFilmAction} from '../../actions/getOneFilmDataAction'
 interface  CardProps {
   id: string,

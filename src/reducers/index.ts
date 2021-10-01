@@ -3,11 +3,6 @@ import { getDataReduser } from './getDataReduser'
 import { getOneFilmDataReduser } from './getOneFilmDataReduser'
 import  filmSortReduser  from './filmSortReduser'
 
-interface redusersTypes {
-    getData: object,
-    getOneFilmData: object,
-    filmSort : object
-  }
 
 
 
