@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 
-function App() {
+const App:React.FunctionComponent = () =>{
   return (
     <div className="wrapper">
       <HashRouter>

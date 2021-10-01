@@ -1,24 +1,16 @@
 import React from "react";
 import s from "./CardDetail.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { type } from "os";
-import {requestOneFilmAction} from '../../actions/getOneFilmDataAction'
+import { useSelector } from "react-redux";
 import { RootState} from '../../store'
-import { Link } from "react-router-dom";
 
-const CardDetail  = () => {
-  const dispatch = useDispatch();
+const CardDetail:React.FunctionComponent  = () => {
   const oneFilmData = useSelector((state: RootState) => {
     return state.getOneFilmData.data
   });
-  console.log(
-    'Title', oneFilmData
-  )
-  const handleGetFilm = () => {
-  }
+
   return(
     <div className={s.container}>
-      <div onClick = {handleGetFilm} className={s.filmFullListCard}>
+      <div className={s.filmFullListCard}>
         <ul>
           <li key="1">
             <h3>{oneFilmData.Title}  </h3>

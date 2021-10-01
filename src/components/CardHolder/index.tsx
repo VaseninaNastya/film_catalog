@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import s from "./CardHolder.module.scss";
-/*import { getProductListAction } from "../../actions/getProductListAction";
-import { initActivePageAction } from "../../actions/paginationAction";
-import { getCardProductsAction } from "../../actions/cardProductAction";
-import { initNumbersOfPageAction  } from "../../actions/numbersOfPageAction";*/
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Card from "../Card";
-import magicNumbers from "../../constants/magicNumbers.constants";
 import { RootState} from '../../store'
-const CardHolder = () => {
+const CardHolder:React.FunctionComponent = () => {
   interface Item { imdbID: string; Title: string; Year: string; Type: string;Poster: string;}
   const allFetchedFilms = useSelector((state: RootState) => {
     return state.getData.data
@@ -25,8 +20,8 @@ console.log("sortedFilms", sortedFilms)
    return(
       <div className={s.container}>
         <div className={s.cardHolder_container}>
-          {filmsForShow.map(({imdbID, Title, Year, Type, Poster}: Item)=>{
-            return <Card id = {imdbID}  title = {Title} year = {Year} type = {Type} poster = {Poster}/>
+          {filmsForShow.map(({imdbID, Title, Year, Type, Poster}: Item, index:number)=>{
+            return <Card key={index} id = {imdbID}  title = {Title} year = {Year} type = {Type} poster = {Poster}/>
           })}
         </div>
       </div>

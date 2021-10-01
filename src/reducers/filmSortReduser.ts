@@ -5,7 +5,8 @@ const initialState = {
 };
 interface Action {
   type: string;
-  payload: any}
+  payload: any
+}
 const filmSortReduser = (state = initialState, { type, payload}:Action) => {
   switch (type) {
     case FILM_SORT:

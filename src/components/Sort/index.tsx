@@ -5,7 +5,7 @@ import fitler from "../../utils/fitler.utils";
 import { RootState } from '../../store'
 import { filmSortAction } from '../../actions/filmSortAction'
 
-const Sort = () => {
+const Sort:React.FunctionComponent = () => {
   const allFetchedFilms = useSelector((state: RootState) => {
     return state.getData.data
   });
@@ -18,13 +18,15 @@ const Sort = () => {
   const disabledSelect:boolean = errorRequest === true || allFetchedFilms.length === 0 || wrongRequest==="False" ? true : false
   
   const productsForSort = allFetchedFilms.Search
+  type sortetType = ReturnType <typeof allFetchedFilms.Search>
   const dispatch = useDispatch();
   const handleSortChoise = function ({target: {value}}: React.ChangeEvent<HTMLSelectElement>) {
-    let sorted: object[] = []
-    productsForSort.map((item : object)=>sorted.push(item))
+    let sorted:sortetType = []
+    productsForSort.map((item : Record <string, unknown>) => sorted.push(item))
     if(value !== 'without_sorting'){
       sorted = fitler(sorted, value) 
     } 
+    
     dispatch(filmSortAction(sorted));
   };
   return (

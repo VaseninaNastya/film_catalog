@@ -11,7 +11,7 @@ const initialState = {
   };
   interface Action {
     type: string;
-    data: any 
+    data: Record <string, unknown> | string 
   }
 
  export const getDataReduser = (state = initialState, {type,data} : Action) => {
