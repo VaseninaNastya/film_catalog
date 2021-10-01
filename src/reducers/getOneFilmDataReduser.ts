@@ -10,11 +10,18 @@ const initialState = {
     loading: false,
     error: false,
   };
-  interface Action {
+
+  interface initialStateType {
+    data: any,
+    loading: boolean,
+    error: boolean,
+  }
+
+interface Action {
     type: string;
     data: any
   }
- export const getOneFilmDataReduser = (state = initialState, {type, data}: Action) => {
+ export const getOneFilmDataReduser = (state = initialState, {type, data}: Action):initialStateType  => {
     switch (type) {
       case REQUESTED_ONE_FILM:
         return {

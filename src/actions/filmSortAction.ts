@@ -1,20 +1,24 @@
 import { FILM_SORT, CLEAR_FILM_SORT } from "./actionTypes";
-interface filmSortActionType {
-    type: string;
-    payload: any
-}
+
 interface clearFilmSortType {
     type: string;
 }
 
-export const filmSortAction = (value: any) : filmSortActionType =>{
+interface filmSortActionType<T> {
+    type: string;
+    payload:  Array<T>
+}
+
+export function filmSortAction<T> (value : Array<T>):filmSortActionType<T> {
     return {
         type: FILM_SORT,
         payload: value
     }
 }
-export const clearFilmSortAction = ():clearFilmSortType =>{
+export function clearFilmSortAction ():clearFilmSortType {
     return {
         type: CLEAR_FILM_SORT
     }
 }
+
+

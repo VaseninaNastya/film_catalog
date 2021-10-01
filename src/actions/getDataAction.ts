@@ -4,29 +4,29 @@ import {
   REQUESTED_FILMS_FAILED
 } from "./actionTypes";
 
-interface requestFilmAction  {
+interface requestFilmActionType  {
   type: string;
   value: string
 }
-interface requestFilmsSuccessActionAction  {
+interface requestFilmsSuccessActionActionType  {
   type: string;
   data: any
 }
-interface requestFilmsErrorActionAction  {
+interface requestFilmsErrorActionActionType  {
   type: string;
 }
-export const requestFilmAction  = (value : string ): requestFilmAction => {
+export const requestFilmAction  = (value : string ):requestFilmActionType => {
   return { 
     type: REQUESTED_FILMS,
     value 
-}
+  }
 };
 
-export const requestFilmsSuccessAction  = (data :any): requestFilmsSuccessActionAction => {
+
+export const requestFilmsSuccessAction  = (data : any) : requestFilmsSuccessActionActionType => {
   return { type: REQUESTED_FILMS_SUCCEEDED, data: data }
 };
 
-export const requestFilmsErrorAction = (): requestFilmsErrorActionAction => {
+export const requestFilmsErrorAction = ():requestFilmsErrorActionActionType => {
   return { type:  REQUESTED_FILMS_FAILED }
 };
-
