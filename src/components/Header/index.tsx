@@ -6,6 +6,7 @@ import { requestFilmAction} from '../../actions/getDataAction'
 import {clearFilmSortAction } from '../../actions/filmSortAction'
 import cl from "classnames";
 import Sort from '../Sort/index'
+import { ReactHTMLElement } from "react";
 
 interface  HeaderProps {
   hideSearch: boolean,
@@ -15,11 +16,12 @@ interface  HeaderProps {
 
 const Header: React.FC<HeaderProps>  = ({hideSearch, hideReturnToList, hideAboutTheTeam}) => {
   const dispatch = useDispatch();
-  const handleGetFilms = function({target, currentTarget }: any){
-    if(target.getAttribute("id") === "search_button"){
-      console.log("target1111", currentTarget.querySelector("#search_input").value)
+  const handleGetFilms = function({target, currentTarget }: React.MouseEvent<HTMLDivElement, MouseEvent>/*, {currentTarget }:React.MouseEvent<HTMLInputElement, MouseEvent>*/){
+    if((target as HTMLElement).getAttribute("id") === "search_button"){
+      const result = (currentTarget.querySelector("#search_input")  as HTMLInputElement).value
+      console.log("result", result)
       dispatch(clearFilmSortAction())
-      dispatch(requestFilmAction(currentTarget.querySelector("#search_input").value))
+      dispatch(requestFilmAction(result))
     }
   }
   const inputContainerClass = cl(

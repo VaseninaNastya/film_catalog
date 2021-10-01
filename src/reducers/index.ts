@@ -3,7 +3,15 @@ import { getDataReduser } from './getDataReduser'
 import { getOneFilmDataReduser } from './getOneFilmDataReduser'
 import  filmSortReduser  from './filmSortReduser'
 
-const redusers = combineReducers({
+interface redusersTypes {
+    getData: object,
+    getOneFilmData: object,
+    filmSort : object
+  }
+
+
+
+const redusers   = combineReducers({
     getData: getDataReduser,
     getOneFilmData: getOneFilmDataReduser,
     filmSort : filmSortReduser
