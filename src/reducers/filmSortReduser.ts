@@ -7,7 +7,11 @@ interface Action {
   type: string;
   payload: any
 }
-const filmSortReduser = (state = initialState, { type, payload}:Action) => {
+interface initialStateType {
+  sortedData: any
+}
+
+const filmSortReduser = (state = initialState, { type, payload}:Action) : initialStateType => {
   switch (type) {
     case FILM_SORT:
       return {...state, sortedData: payload};
@@ -19,5 +23,4 @@ const filmSortReduser = (state = initialState, { type, payload}:Action) => {
 };
 
 export default filmSortReduser;
-
 

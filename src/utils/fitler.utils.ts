@@ -1,7 +1,5 @@
-
-
-function filter(arr, value) {
-  return arr.sort(function (a, b) {
+function filter<T>(arr: Array<T>, value: string):Array<T> {
+  return arr.sort(function (a:any, b:any) {
     if (a[value] > b[value]) {
       return 1;
     }
@@ -12,4 +10,4 @@ function filter(arr, value) {
   }); 
 }
 
-export default filter;
+export default filter

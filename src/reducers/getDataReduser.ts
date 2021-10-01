@@ -11,10 +11,15 @@ const initialState = {
   };
   interface Action {
     type: string;
-    data: Record <string, unknown> | string 
+    data: any
+  }
+  interface initialStateType {
+    data: any,
+    loading: boolean,
+    error: boolean,
   }
 
- export const getDataReduser = (state = initialState, {type,data} : Action) => {
+ export const getDataReduser = (state = initialState, {type, data} : Action):initialStateType => {
     switch (type) {
       case REQUESTED_FILMS:
         return {

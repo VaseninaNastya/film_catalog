@@ -19,7 +19,6 @@ const Header: React.FC<HeaderProps>  = ({hideSearch, hideReturnToList, hideAbout
   const handleGetFilms = function({target, currentTarget }: React.MouseEvent<HTMLDivElement, MouseEvent>/*, {currentTarget }:React.MouseEvent<HTMLInputElement, MouseEvent>*/){
     if((target as HTMLElement).getAttribute("id") === "search_button"){
       const result = (currentTarget.querySelector("#search_input")  as HTMLInputElement).value
-      console.log("result", result)
       dispatch(clearFilmSortAction())
       dispatch(requestFilmAction(result))
     }

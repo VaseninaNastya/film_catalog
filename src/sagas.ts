@@ -12,7 +12,7 @@ interface actionType {
 }
 
 //all films
-function* fetchFilmsAsync (action: actionType) {
+function* fetchFilmsAsync (action: actionType):Generator<any, any, any> {
   try {
     const data:fetchFilmsType = yield call(fetchFilms, action.value)
     yield put(requestFilmsSuccessAction(data));
@@ -20,17 +20,17 @@ function* fetchFilmsAsync (action: actionType) {
     yield put(requestFilmsErrorAction());
   }
 }
-const fetchFilms = (value: string ) => {
+const fetchFilms = (value: string ) : Promise<any>=> {
   return  fetch( apiUrl.apiUrlList + value + apiUrl.apiKey)
   .then(res => res.json())
 }
 
-export function* watchFetchFilms() {
+export function* watchFetchFilms(): Generator<any, any, any> {
   yield takeEvery('REQUESTED_FILMS', fetchFilmsAsync);
 }
 
 //one film
-function* fetchOneFilmAsync (action :actionType) {
+function* fetchOneFilmAsync (action :actionType) : Generator<any, any, any>{
   try {
     const data:fetchOneFilmType = yield call(fetchOneFilm, action.value)
     yield put(requestOneFilmSuccessAction(data));
@@ -40,12 +40,12 @@ function* fetchOneFilmAsync (action :actionType) {
 }
 
 
-const fetchOneFilm = (value: string ) => {
+const fetchOneFilm = (value: string ):Promise<any> => {
   return  fetch( apiUrl.apiUrlFilm + value + apiUrl.apiKeyOneFilm)
   .then(res => res.json())
 }
 
-export function* watchFetchOneFilm() {
+export function* watchFetchOneFilm():Generator<any, any, any> {
   yield takeEvery('REQUESTED_ONE_FILM', fetchOneFilmAsync);
 }
 
