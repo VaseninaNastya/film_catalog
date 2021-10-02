@@ -10,19 +10,32 @@ import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 
+let state = {
+  cardProduct: {
+    productsInCard: [1]
+  }
+};
+
+const middlewares: any[] = [];
+const mockStore = configureMockStore(middlewares);
+const store = mockStore(() => state);
 describe('src/components/Card', () => {
   describe('Card', () => {
     it("expected innerHTML in elements of DOM", () => {
       const mockingData = JSON.parse(`{"id" : "tt0371746", "title" : "Iron Man", "year" : "2008", "type" : "movie", "poster" : "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg"}`)
-      const component = shallow(            
+      Enzyme.configure({ adapter: new Adapter() })
+      const component = shallow(        
+        <Provider store={store}>
       <Card 
         id={mockingData.id}
         title={mockingData.title}
         year={mockingData.year}
         type={mockingData.type}
         poster = {mockingData.poster}
-      />)
+      />
+        </Provider>)
       const wrapper = component.find("h3")
+      console.log("component", component)
       expect(wrapper.length).toBe(1)
     })
   })
