@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./CardHolder.module.scss";
 import { useSelector } from "react-redux";
-import Card from "../Card";
+import  Card  from "../Card";
 import { RootState} from '../../store'
 const CardHolder:React.FunctionComponent = () => {
   interface Item { imdbID: string; Title: string; Year: string; Type: string;Poster: string;}
@@ -14,7 +14,6 @@ const CardHolder:React.FunctionComponent = () => {
   const response = useSelector((state: RootState) => {
     return state.getData.error
   });
-console.log("sortedFilms", sortedFilms)
   if(Object.keys(allFetchedFilms).length  && allFetchedFilms.Response ==="True" && !response){
     const filmsForShow = sortedFilms.length ? sortedFilms : allFetchedFilms.Search
    return(
