@@ -1,7 +1,8 @@
 
 import { FILM_SORT, CLEAR_FILM_SORT } from "../actions/actionTypes";
+const initialArray: any = []
 const initialState = {
-  sortedData: []
+  sortedData: initialArray
 };
 interface Action {
   type: string;

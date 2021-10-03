@@ -10,9 +10,7 @@ describe('utils/fitler.utils', () => {
       expect(JSON.stringify(sortedArray)).toMatch(JSON.stringify(expectedSortedByTitleMockingArray));
     })
     it("sort by number field", () => {
-      const sortedArray = filter(unsortedMockingArray,'Year');
-      console.log(JSON.stringify(sortedArray));
-      
+      const sortedArray = filter(unsortedMockingArray,'Year');      
       expect(JSON.stringify(sortedArray)).toMatch(JSON.stringify(expectedSortedByYearMockingArray));
     })
     
