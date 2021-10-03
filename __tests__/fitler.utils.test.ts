@@ -1,4 +1,4 @@
-import filter from "./utils/fitler.utils";
+import filter from "../src/utils/fitler.utils";
 
 describe('utils/fitler.utils', () => {
   describe('fitler.utils', () => {

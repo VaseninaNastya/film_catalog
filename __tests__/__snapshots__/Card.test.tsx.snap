@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders correctly 1`] = `
+<a
+  href="/film"
+>
+  <div
+    class="filmListCard"
+    id="tt0371746"
+  >
+    <ul
+      class="filmListCard_header"
+    >
+      <li>
+        <h3>
+          Iron Man
+        </h3>
+      </li>
+      <li>
+        <span>
+          year: 2008
+        </span>
+      </li>
+      <li>
+        <span>
+          type: movie
+        </span>
+      </li>
+    </ul>
+    <div
+      class="filmListCard_imgWrapper"
+    >
+      <img
+        alt="Iron Man"
+        class="filmListCard_img"
+        src="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg"
+      />
+    </div>
+  </div>
+</a>
+`;

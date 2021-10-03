@@ -10,9 +10,11 @@ interface  CardProps {
   type:string,
   poster:string,
 }
+
 const Card: React.FC<CardProps> = ({id, title, year, type, poster}) => {
+  const dispatch: any = useDispatch();
   const handleGetFilm = ({currentTarget}: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const dispatch = useDispatch();
+    
     const result = currentTarget.getAttribute("id")
     dispatch(requestOneFilmAction(result))
   }
