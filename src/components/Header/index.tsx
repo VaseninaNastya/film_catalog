@@ -17,8 +17,9 @@ const Header: React.FC<IHeader> = ({
   hideSearch,
   hideReturnToList,
   hideAboutTheTeam,
-}) => {
+}: IHeader) => {
   const dispatch = useDispatch();
+
   const handleGetFilms = function ({
     target,
     currentTarget,
@@ -31,14 +32,17 @@ const Header: React.FC<IHeader> = ({
       dispatch(requestFilmAction(result));
     }
   };
+
   const inputContainerClass = cl(
     { [s.input_container_hide]: hideSearch },
     { [s.input_container]: !hideSearch }
   );
+
   const headerButtonClass = cl(
     { [s.header_button_hide]: hideReturnToList },
     { [s.header_button]: !hideReturnToList }
   );
+
   const headerAboutTheTeamButtonClass = cl(
     { [s.header_button_hide]: hideAboutTheTeam },
     { [s.header_button]: !hideAboutTheTeam }
@@ -59,7 +63,6 @@ const Header: React.FC<IHeader> = ({
           <Link to="/">Return to list</Link>
         </div>
         <div className={headerAboutTheTeamButtonClass}>
-          {" "}
           <Link to="/aboutTheTeam">About the team</Link>
         </div>
         <div></div>
